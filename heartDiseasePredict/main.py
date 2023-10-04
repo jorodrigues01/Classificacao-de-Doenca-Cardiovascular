@@ -33,13 +33,13 @@ def main():
 
     X_train, X_test, y_train, y_test = train_test_split(features, label, random_state=42, test_size=0.25)
 
-    p = Perceptron()
+    p = Perceptron(eta=0.01, threshold=0.2, n_epochs=300)
 
     p.train(X_train, y_train)
     predict = p.test(X_test)
 
-    print(f'Comparing the labels with the predictions obtained by the neural network,'
-          f'we got a {accuracy(y_test, predict)} of accuracy! ')
+    print(f'\n\n Comparing the labels with the predictions obtained by the neural network, we got a '
+          f'{accuracy(y_test, predict)} of accuracy! ')
 
 
 if __name__ == '__main__':
